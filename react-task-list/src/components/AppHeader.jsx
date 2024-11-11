@@ -1,7 +1,8 @@
 export default function AppHeader() {
     //logic here
+    const title = 'Task Manager';
     //markup
     return (
-        <header>Task Manager</header>
+        <header>{title}</header>
     )
 }
