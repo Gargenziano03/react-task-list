@@ -9,3 +9,11 @@ header {
   padding: 0.5rem 1rem;
   background-color: aquamarine;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+
+
+}

@@ -74,8 +74,8 @@ export default function AppMain() {
         }
     ];
 
-    const currentTask = tasks.filter((stack) => !stack.currentTask)
-    const completedTask = tasks.filter((stack) => stack.currentTask)
+    const currentTask = tasks.filter((stack) => !stack.state !== "completed")
+    const completedTask = tasks.filter((stack) => stack.state === "completed")
 
     //markup
     return (
@@ -84,14 +84,24 @@ export default function AppMain() {
             <section className="currentTask">
                 <h2>current Task</h2>
                 <ul>
-                    {currentTask.map(task => <li key={task.id}>{task.name}</li>)}
+                    {currentTask.map(task => <li key={task.id}>
+                        <div><strong>{task.title}</strong></div>
+                        <div>priority{task.priority}</div>
+                        <div>Tempo stimato: {task.estimatedTime} min</div>
+                    </li>)}
                 </ul>
             </section>
+
+            <hr />
 
             <section className="completedTask">
                 <h2>completed Task</h2>
                 <ul>
-                    {completedTask.map(task => <li key={task.id}>{task.name}</li>)}
+                    {completedTask.map(task => <li key={task.id}>
+                        <div><strong>{task.title}</strong></div>
+                        <div>priority{task.priority}</div>
+                        <div>Tempo stimato: {task.estimatedTime} min</div>
+                    </li>)}
                 </ul>
             </section>
         </main>
